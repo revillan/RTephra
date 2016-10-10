@@ -1,6 +1,6 @@
 # Analyzing Radiocarbon Data with Temporal Order Constraints
 
-This is the Repository for my Senior Thesis in Mathematics-Statistics at Reed College. It uses the Metropolis-Hastings algorithm to estimate the ages of six samples found at Mt. Rainier National Park. The ![full version](./RTephraThesisFull) of my thesis is available, as is the ![R script](./RealRTephra.R) that can be used to replicate the analysis.
+This is the Repository for my Senior Thesis in Mathematics-Statistics at Reed College. It uses the Metropolis-Hastings algorithm to estimate the ages of six samples found at Mt. Rainier National Park. The [full version](./RTephraThesisFull.pdf) of my thesis is available, as is the [R script](./RealRTephra.R) that can be used to replicate the analysis.
 
 ## Background
 
@@ -28,7 +28,7 @@ dataset includes five samples, two above and three below the R tephra (where ab
 
 To date the R tephra, the simulation was run for two million trials. The proposal distribution was normal with a variance of 625. The variance was chosen to be lower here than in the previous applications without the R Tephra datapoint since at every iteration, including the R tephra constraint already restricts the values each component can take on. The rejection rate was approximately 20%. The first 10,000 trials were discarded as burn-in and then every fifth trial was sampled.
 
-![results](./tephStack.pdf)
+![results](./TephraResults.png)
 *Posterior densities for the analysis with the R tephra boundary included. The line plots are densities based on individual numerical integrations without the ordered prior.*
 
 As opposed to the analysis without the R tephra, the densities for the carbon dated samples are slightly flatter (the 95% credible intervals are wider). The samples found above the R tephra have more density in younger ages than before while samples found below the R tephra have more density in older ages. This is as expected since, in any given iteration of the simulation, we required the ages of the samples to be strictly ordered.
