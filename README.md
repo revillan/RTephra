@@ -7,6 +7,11 @@ This is the Repository for my Senior Thesis in Mathematics-Statistics at Reed Co
 The ratio of carbon-14 to carbon-12 in the atmosphere is not constant over time, so measuring the carbon ratio in living things from the present is not a good estimate for the initial carbon ratio of a sample. Scientists who want their
 samples carbon dated send them to a lab and receive a carbon date along with an estimated standard deviation. While this carbon date is a function of the calendar year from which the sample originated, the exponential constant is unknown, making it difficult to find the true age of a sample.
 
+![relationship between conventional carbon dates and calendar years](./conv_carb_vs_cal.png)
+
+*The most recent (2013) calibration curve relating conventional carbon
+dates to calendar year (BP) shown with the identity line.*
+
 In order to make determining calendar years from carbon dates possible, calibration curves were created. The calibration curve used here, IntCal13, spans from 0 to 50,000 BP, where BP stands for before present. The year 0 BP is defined as 1950 and larger values correspond to older ages.
 
 Using the calibration curve, we can calculate a probability distribution on calendar years for a single conventional carbon date. However, scientists often have information about their samples beyond the carbon dates measured in a lab, which can help to narrow the distribution of possible ages. Here we deal with getting more accurate approximations of age by incorporating this additional information into the data analysis. Specifically, we tackle the problem where multiple samples are found at a single site with some samples found above or below others in the sediment, where samples found nearer to the surface of the earth are assumed to be younger compared to samples found deeper in the sediment. This analysis was originally suggested by Buck et al. [1992].
@@ -29,6 +34,7 @@ dataset includes five samples, two above and three below the R tephra (where ab
 To date the R tephra, the simulation was run for two million trials. The proposal distribution was normal with a variance of 625. The variance was chosen to be lower here than in the previous applications without the R Tephra datapoint since at every iteration, including the R tephra constraint already restricts the values each component can take on. The rejection rate was approximately 20%. The first 10,000 trials were discarded as burn-in and then every fifth trial was sampled.
 
 ![results](./TephraResults.png)
+
 *Posterior densities for the analysis with the R tephra boundary included. The line plots are densities based on individual numerical integrations without the ordered prior.*
 
 As opposed to the analysis without the R tephra, the densities for the carbon dated samples are slightly flatter (the 95% credible intervals are wider). The samples found above the R tephra have more density in younger ages than before while samples found below the R tephra have more density in older ages. This is as expected since, in any given iteration of the simulation, we required the ages of the samples to be strictly ordered.
